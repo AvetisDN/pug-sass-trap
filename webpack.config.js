@@ -26,7 +26,7 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({
-            template: './src/html/index.pug',
+            template: './src/tpl/index.pug',
             filename: 'index.html',
             inject: 'body'
         })
