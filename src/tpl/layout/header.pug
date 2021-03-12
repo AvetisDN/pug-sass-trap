@@ -1,0 +1,13 @@
+header.container-fluid.bg-dark.py-3
+    .container 
+        .row.align-items-center.justify-content-between
+            .col-12.col-md-auto
+                a.h2.text-white.text-decoration-none(href="/") LOGO
+            .col-12.col-md-auto.navbar.navbar-dark.navbar-expand-lg
+                nav.navbar-nav
+                    if title == 'Home'
+                        a.nav-link.active(href='/') Home
+                        a.nav-link(href='/portfolio.html') Portfolio
+                    if title == 'Portfolio'
+                        a.nav-link(href='/') Home
+                        a.nav-link.active(href='/portfolio.html') Portfolio

@@ -1,0 +1,8 @@
+- var title = 'Portfolio'
+include layout/head.pug
+.container.bg-white.shadow-sm.py-3.mt-3.rounded
+    h1.mb-3 #{title}
+    .row.g-3
+        each itemNumber in [124,234345,124,123]
+            include portfolio/card.pug
+            

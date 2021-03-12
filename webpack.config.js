@@ -26,8 +26,15 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({
+            title: 'Home page',
             template: './src/tpl/index.pug',
             filename: 'index.html',
+            inject: 'body'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Portfolio page',
+            template: './src/tpl/portfolio.pug',
+            filename: 'portfolio.html',
             inject: 'body'
         })
     ],
