@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: ['./src/app.js', './src/app.scss'],
@@ -20,9 +21,14 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: './src/html'
+                    from: './src/public'
                 }
             ]
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/html/index.pug',
+            filename: 'index.html',
+            inject: 'body'
         })
     ],
     module: {
@@ -59,6 +65,7 @@ module.exports = {
             },
             {
                 test: /\.(png|gif|jpe?g|svg|bmp|webp)$/,
+                exclude: /(public)/,
                 use: [
                     {
                         loader: 'file-loader',
@@ -76,6 +83,20 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             outputPath: 'fonts'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.pug$/,
+                use: [
+                    {
+                        loader: 'html-loader'
+                    },
+                    {
+                        loader: 'pug-html-loader',
+                        options: {
+                            pretty: true
                         }
                     }
                 ]
